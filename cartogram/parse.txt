@@ -1,0 +1,33 @@
+fetch('testParse1.csv').then((data)=>data.text()).then((data)=>text = data)
+text = text.split('\n')
+text.forEach((d)=>{d.replace(/"(\d*),(\d*)"/g, "$1$2")})
+var i = text.findIndex((d)=>d.split(',')[0].trim() === 'Punjab')
+
+var cols = {};
+var foundK = {}
+for(var j = i - 1; j >= 0; j--){
+	var columns = text[j].split(',');
+	for(var k = 1; k < columns.length; k++){
+		if(foundK[k]){
+			continue;
+		}
+		if(columns[k].trim()){
+			cols[columns[k].trim()] = k;
+			foundK[k] = true;
+		}
+	}
+}
+
+//another way -- less efficient
+var cols = {};
+var numCols = text[i - 1].split(',').length;
+
+for(var j = 1; j < numCols; j++){
+	for(var k = i - 1; k >= 0; k--){
+		var cell = text[k].split(',')[j]
+		if(cell.trim()){
+			cols[cell] = j;
+			break;
+		}
+	}
+}

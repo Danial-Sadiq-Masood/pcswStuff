@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		html, body {
+			margin : 0px;
+		}
+
+		body {
+			height: 800px
+		}
+
+		canvas : {
+			display : block;
+		}
+
+		svg {
+			filter: drop-shadow(1px 6px 3px rgb(0,0,0,0.1));
+		}
+
+		.g-map {
+			transform : translate(50px, 50px);
+			fill : none;
+			stroke: #3F51B5;
+    		stroke-width: 1.2px
+		}
+
+		.g-circles {
+			transform : translate(50px, 50px);
+			stroke: #fff;
+			stroke-width: 1px; 
+		}
+
+		.g-outline {
+			transform : translate(50px, 50px);
+			stroke: #2196F3;
+			fill: none;
+			stroke-width: 1.2px; 
+		}
+
+		.c-tooltip {
+			display: flex;
+			position: absolute;
+			flex-direction: column;
+		}
+
+	</style>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
+</head>
+<body>
+	<svg width="800px" height="800px">
+	</svg>
+	<script type="text/javascript" src="fetch2.js"></script>
+</body>
+</html>
